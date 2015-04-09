@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eSign_backupModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="eSign_backupEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserToken" EntityType="eSign_backupModel.UserToken" />
+  </EntityContainer>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="IssuedIn" />
+      <PropertyRef Name="ExpiresIn" />
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="AuthToken" />
+    </Key>
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="AuthToken" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IssuedIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiresIn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Type="Guid" Name="ID" Nullable="false" />
+  </EntityType>
+</Schema>

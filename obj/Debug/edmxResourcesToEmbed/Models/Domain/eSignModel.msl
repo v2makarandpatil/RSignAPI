@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="eSign_backupModelStoreContainer" CdmEntityContainer="eSign_backupEntities">
+    <EntitySetMapping Name="UserToken">
+      <EntityTypeMapping TypeName="IsTypeOf(eSign_backupModel.UserToken)">
+        <MappingFragment StoreEntitySet="UserToken">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+          <ScalarProperty Name="IssuedIn" ColumnName="IssuedIn" />
+          <ScalarProperty Name="ExpiresIn" ColumnName="ExpiresIn" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

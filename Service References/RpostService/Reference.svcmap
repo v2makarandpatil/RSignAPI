@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0b4f8a1e-202f-4007-8a5e-5976601ba6f7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://rmail.rpost.com/ServiceHost/RMailService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RPostService.wsdl" MetadataType="Wsdl" ID="dba3f40f-661a-44e2-8673-b1c43e73b734" SourceId="1" SourceUrl="https://rmail.rpost.com/ServiceHost/RMailService.svc?wsdl" />
+    <MetadataFile FileName="RMailService.disco" MetadataType="Disco" ID="19686842-22f4-456b-8808-1c543df28d7e" SourceId="1" SourceUrl="https://rmail.rpost.com/ServiceHost/RMailService.svc?disco" />
+    <MetadataFile FileName="RMailService.xsd" MetadataType="Schema" ID="3f6b337f-d674-4d54-be66-2bceef52f228" SourceId="1" SourceUrl="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RMailService1.xsd" MetadataType="Schema" ID="366f7f9c-1593-40a6-9314-e313dba19a92" SourceId="1" SourceUrl="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RMailService2.xsd" MetadataType="Schema" ID="6eb7c117-07c7-4060-bcae-f39142f7c567" SourceId="1" SourceUrl="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RMailService3.xsd" MetadataType="Schema" ID="8f475f43-e06f-4ccd-a2d0-3f1d77a894d5" SourceId="1" SourceUrl="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd3" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

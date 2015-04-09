@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="eSign_backupModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="eSign_backupModelStoreContainer">
+    <EntitySet Name="UserToken" EntityType="eSign_backupModel.Store.UserToken" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="AuthToken" />
+      <PropertyRef Name="IssuedIn" />
+      <PropertyRef Name="ExpiresIn" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AuthToken" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IssuedIn" Type="datetime" Nullable="false" />
+    <Property Name="ExpiresIn" Type="datetime" Nullable="false" />
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+</Schema>

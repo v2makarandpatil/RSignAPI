@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://service.rpost.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RPostService" targetNamespace="http://service.rpost.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_RPostService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://service.rpost.com/Imports">
+      <xsd:import schemaLocation="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd0" namespace="http://service.rpost.com" />
+      <xsd:import schemaLocation="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://rmail.rpost.com/ServiceHost/RMailService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/Message" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="RPostService_RegisterUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUser" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_RegisterUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_RegisterUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/" name="detail" element="q1:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmail" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmail_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/" name="detail" element="q2:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmailFromString_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailFromString" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmailFromString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailFromStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmailFromString_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/" name="detail" element="q3:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmailFromBoxViaWCFClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailFromBoxViaWCFClient" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmailFromBoxViaWCFClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailFromBoxViaWCFClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_SendEmailFromBoxViaWCFClient_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/" name="detail" element="q4:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadMessage">
+    <wsdl:part name="parameters" element="tns:FileUploadMessage" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadMessage_Headers">
+    <wsdl:part name="FileMeta" element="tns:FileMeta" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadResponse">
+    <wsdl:part name="parameters" element="tns:FileUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FileUploadResponse_Headers">
+    <wsdl:part name="Response" element="tns:Response" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_LoadAttachmentFromBase64_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAttachmentFromBase64" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_LoadAttachmentFromBase64_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadAttachmentFromBase64Response" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_LoadSignatureFromBase64_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSignatureFromBase64" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_LoadSignatureFromBase64_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadSignatureFromBase64Response" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_AuthenticateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_AuthenticateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_AuthenticateUser_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/" name="detail" element="q5:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_AuthenticateEnterprise_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateEnterprise" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_AuthenticateEnterprise_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateEnterpriseResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_AuthenticateEnterprise_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/" name="detail" element="q6:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ForgotPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ForgotPassword" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ForgotPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ForgotPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ForgotPassword_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/" name="detail" element="q7:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ChangePassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ChangePassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ChangePassword_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/" name="detail" element="q8:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_Logout_InputMessage">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_Logout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_Logout_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/" name="detail" element="q9:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ResendActivationLink_InputMessage">
+    <wsdl:part name="parameters" element="tns:ResendActivationLink" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ResendActivationLink_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ResendActivationLinkResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ResendActivationLink_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/" name="detail" element="q10:ServiceException" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ChangeDisplayName_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeDisplayName" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ChangeDisplayName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeDisplayNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="RPostService_ChangeDisplayName_ServiceExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/" name="detail" element="q11:ServiceException" />
+  </wsdl:message>
+  <wsdl:portType name="RPostService">
+    <wsdl:operation name="RegisterUser">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/RegisterUser" message="tns:RPostService_RegisterUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/RegisterUserResponse" message="tns:RPostService_RegisterUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/RegisterUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_RegisterUser_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/SendEmail" message="tns:RPostService_SendEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/SendEmailResponse" message="tns:RPostService_SendEmail_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/SendEmailServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_SendEmail_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailFromString">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/SendEmailFromString" message="tns:RPostService_SendEmailFromString_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/SendEmailFromStringResponse" message="tns:RPostService_SendEmailFromString_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/SendEmailFromStringServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_SendEmailFromString_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailFromBoxViaWCFClient">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/SendEmailFromBoxViaWCFClient" message="tns:RPostService_SendEmailFromBoxViaWCFClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/SendEmailFromBoxViaWCFClientResponse" message="tns:RPostService_SendEmailFromBoxViaWCFClient_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/SendEmailFromBoxViaWCFClientServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_SendEmailFromBoxViaWCFClient_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAttachment">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/LoadAttachment" name="FileUploadMessage" message="tns:FileUploadMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/LoadAttachmentResponse" name="FileUploadResponse" message="tns:FileUploadResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadAttachmentFromBase64">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/LoadAttachmentFromBase64" message="tns:RPostService_LoadAttachmentFromBase64_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/LoadAttachmentFromBase64Response" message="tns:RPostService_LoadAttachmentFromBase64_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSignature">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/LoadSignature" name="FileUploadMessage" message="tns:FileUploadMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/LoadSignatureResponse" name="FileUploadResponse" message="tns:FileUploadResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadSignatureFromBase64">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/LoadSignatureFromBase64" message="tns:RPostService_LoadSignatureFromBase64_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/LoadSignatureFromBase64Response" message="tns:RPostService_LoadSignatureFromBase64_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/AuthenticateUser" message="tns:RPostService_AuthenticateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/AuthenticateUserResponse" message="tns:RPostService_AuthenticateUser_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/AuthenticateUserServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_AuthenticateUser_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateEnterprise">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/AuthenticateEnterprise" message="tns:RPostService_AuthenticateEnterprise_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/AuthenticateEnterpriseResponse" message="tns:RPostService_AuthenticateEnterprise_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/AuthenticateEnterpriseServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_AuthenticateEnterprise_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPassword">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/ForgotPassword" message="tns:RPostService_ForgotPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/ForgotPasswordResponse" message="tns:RPostService_ForgotPassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/ForgotPasswordServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_ForgotPassword_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/ChangePassword" message="tns:RPostService_ChangePassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/ChangePasswordResponse" message="tns:RPostService_ChangePassword_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/ChangePasswordServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_ChangePassword_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/Logout" message="tns:RPostService_Logout_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/LogoutResponse" message="tns:RPostService_Logout_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/LogoutServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_Logout_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ResendActivationLink">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/ResendActivationLink" message="tns:RPostService_ResendActivationLink_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/ResendActivationLinkResponse" message="tns:RPostService_ResendActivationLink_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/ResendActivationLinkServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_ResendActivationLink_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDisplayName">
+      <wsdl:input wsaw:Action="http://service.rpost.com/RPostService/ChangeDisplayName" message="tns:RPostService_ChangeDisplayName_InputMessage" />
+      <wsdl:output wsaw:Action="http://service.rpost.com/RPostService/ChangeDisplayNameResponse" message="tns:RPostService_ChangeDisplayName_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://service.rpost.com/RPostService/ChangeDisplayNameServiceExceptionFault" name="ServiceExceptionFault" message="tns:RPostService_ChangeDisplayName_ServiceExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_RPostService" type="tns:RPostService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_RPostService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterUser">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/RegisterUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmail">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/SendEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailFromString">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/SendEmailFromString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailFromBoxViaWCFClient">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/SendEmailFromBoxViaWCFClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAttachment">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/LoadAttachment" style="document" />
+      <wsdl:input name="FileUploadMessage">
+        <soap:header message="tns:FileUploadMessage_Headers" part="FileMeta" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FileUploadResponse">
+        <soap:header message="tns:FileUploadResponse_Headers" part="Response" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadAttachmentFromBase64">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/LoadAttachmentFromBase64" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSignature">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/LoadSignature" style="document" />
+      <wsdl:input name="FileUploadMessage">
+        <soap:header message="tns:FileUploadMessage_Headers" part="FileMeta" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="FileUploadResponse">
+        <soap:header message="tns:FileUploadResponse_Headers" part="Response" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadSignatureFromBase64">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/LoadSignatureFromBase64" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateEnterprise">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/AuthenticateEnterprise" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ForgotPassword">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/ForgotPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ResendActivationLink">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/ResendActivationLink" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeDisplayName">
+      <soap:operation soapAction="http://service.rpost.com/RPostService/ChangeDisplayName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceExceptionFault">
+        <soap:fault use="literal" name="ServiceExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RPostService">
+    <wsdl:port name="BasicHttpBinding_RPostService" binding="tns:BasicHttpBinding_RPostService">
+      <soap:address location="https://rmail.rpost.com/ServiceHost/RMailService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
